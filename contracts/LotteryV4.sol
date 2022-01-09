@@ -20,10 +20,6 @@ struct LotteryInfo {
     uint256   fee;
 }
 
-
-
-//admin ne kadar fee istenceğeni set edebileceği fonksiyon
-//durdurabilir pause 
 contract LotteryV4 is Ownable,VRFConsumerBase{
 
     event Random(uint256 randomNumber);
@@ -35,7 +31,6 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
 
     LotteryInfo public lottery;
 
-      
     modifier shouldBeOpen(){
         require(lottery.lotteryStatus == Status.Open,"Hasn't started yet!");
         _;
@@ -50,16 +45,12 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
         _;
     }
 
-   // uint256   public   toplamKisi;
-   // uint256   public   birikenPara;
     uint256   public   rastgele;
-   // address[] public   kazananlar;
     bytes32   internal keyHash;
     uint256   internal fee;
     uint256   internal kacTaneSecilsin;
 
     IERC20 token;
-
 
 
     /*  0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9, // VRF Coordinator kovan network
@@ -127,7 +118,7 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
         bool _continue = true;
         uint256 index = 0;
         uint256 hashIndex = 0;
-        //address[] memory winningAddress = new address[](kacTaneSecilsin);
+       
 
           while (_continue == true) {
               //block.timestamp, "rastgele" ile değiştirilecek publice çıkınca
@@ -139,7 +130,6 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
             if (secildiMi[winner] == false) {
                 secildiMi[winner] = true;
                 lottery.kazananlar[index] = winner;
-                //winningAddress[index] = winner;
         
                 index++;
             }
@@ -149,7 +139,6 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
                 _continue = false;
             }
         }
-       // return winningAddress;
     }
 
     function getWinners() external view returns(address[] memory) {
