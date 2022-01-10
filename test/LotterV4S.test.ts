@@ -110,6 +110,16 @@ describe("lotteryDeployed Test", () => {
     await lotteryDeployed.connect(ysirblack).register();
     await expect(lotteryDeployed.connect(mercy).register()).to.be.revertedWith("ERC20: transfer amount exceeds balance");
 
+    console.log(await erc20.balanceOf(owner.address));
+    console.log(await erc20.balanceOf(fringe.address));
+    console.log(await erc20.balanceOf(scheback.address));
+    console.log(await erc20.balanceOf(sawakaga.address));
+    console.log(await erc20.balanceOf(skygge.address));
+    console.log(await erc20.balanceOf(woodcutter.address));
+    console.log(await erc20.balanceOf(ysirblack.address));
+    console.log(await erc20.balanceOf(mercy.address));
+
+
     const numberOfPeople = await lotteryDeployed.lottery();
     const moneyCollected = await lotteryDeployed.lottery();
    
@@ -146,14 +156,14 @@ describe("lotteryDeployed Test", () => {
  
     await lotteryDeployed.connect(owner).sendMoneyToWinners();
 
- /*    console.log(await erc20.balanceOf(owner.address));
+    console.log(await erc20.balanceOf(owner.address));
     console.log(await erc20.balanceOf(fringe.address));
     console.log(await erc20.balanceOf(scheback.address));
     console.log(await erc20.balanceOf(sawakaga.address));
     console.log(await erc20.balanceOf(skygge.address));
     console.log(await erc20.balanceOf(woodcutter.address));
     console.log(await erc20.balanceOf(ysirblack.address));
-    console.log(await erc20.balanceOf(mercy.address)); */
+    console.log(await erc20.balanceOf(mercy.address));
   });
 
   it("Reset", async () => {
