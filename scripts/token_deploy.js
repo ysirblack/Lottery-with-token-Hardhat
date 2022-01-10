@@ -1,3 +1,6 @@
+
+const toBN = ethers.utils.parseEther;
+
 async function main() {
     const [deployer] = await ethers.getSigners();
   
@@ -5,10 +8,10 @@ async function main() {
   
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
-    const Lottery = await ethers.getContractFactory("LotteryV4");
-    const lotteryV4 = await Lottery.deploy();
+    const Token = await ethers.getContractFactory("mockToken");
+    const mockToken = await Token.deploy("Coinn","CN",toBN("100000000000000000000"));
   
-    console.log("Contract deployed to : address:", lotteryV4.address);
+    console.log("Token deployed to : address:", mockToken.address);
   }
   
 

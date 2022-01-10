@@ -4,3 +4,4 @@ cache/
 old/
 oldtest/
 typechain-types/
+.env
