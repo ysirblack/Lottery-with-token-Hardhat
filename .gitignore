@@ -1,7 +1,7 @@
-old
-oldtest
-typechain-types
-artifacts
-cache
-node_modules
-.env
+node_modules/
+artifacts/
+cache/
+old/
+oldtest/
+**/typechain-types/**
+**/.env/**
