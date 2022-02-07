@@ -99,6 +99,6 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["./test", "./src", "./scripts", "oldtest/LotteryV3.test.ts"],
-  "files": ["./hardhat.config.ts"] //belirtmezsek LotteryV3.test.ts dosyasında hardhatten export edilen ethers i görmüyor
+  "files": ["./hardhat.config.ts"] 
 
 }

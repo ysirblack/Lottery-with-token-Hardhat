@@ -40,7 +40,7 @@ contract LotteryV4 is Ownable,VRFConsumerBase{
         require(lottery.lotteryStatus == Status.Completed,"Raffle hasn't completed yet");
         _;
     }
-      modifier shouldBeClosed(){
+    modifier shouldBeClosed(){
         require(lottery.lotteryStatus == Status.Closed,"Raffle hasn't closed yet");
         _;
     }

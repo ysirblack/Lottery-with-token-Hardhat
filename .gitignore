@@ -3,5 +3,5 @@ artifacts/
 cache/
 old/
 oldtest/
+.env
 **/typechain-types/**
-**/.env/**
